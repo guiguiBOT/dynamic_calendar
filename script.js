@@ -19,7 +19,7 @@ const monthArray = ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jui", "Aou", "Sep
 
 let firstDayOfCurrentMonth = daysInWeekArray[getFirstDayOfCurrentMonth.getDay()]
 
-if (currentYear % 4) {
+if (currentYear % 4 === 0) {
     fevrier = 29;
 } else {
     fevrier = 28;
