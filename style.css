@@ -9,7 +9,7 @@ html, body {
     min-height: 325px;
     margin: 0;
     padding: 0;
-    border: solid 2px #664121;
+    border: solid 2px #d36300;
     background-color: #000000;
     overflow: hidden;
     box-sizing: border-box;
@@ -35,7 +35,7 @@ html, body {
 }
 
 .dateDigit {
-    color: #684629;
+    color: #9c4c05;
 }
 
 #watchContainer {
@@ -43,14 +43,14 @@ html, body {
 }
 
 .digit {
-    color: #684629;
+    color: #9c4c05;
     font-weight: bold;
 }
 
 .navContainer {
     display: flex;
     justify-content: center;
-    color: #684629;
+    color: #9c4c05;
 }
 
 #yearContainer {
@@ -59,7 +59,7 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 200px;
-    color: #684629;
+    color: #9c4c05;
     font-size: 2.8em;
 }
 
@@ -68,7 +68,7 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 200px;
-    color: #684629;
+    color: #9c4c05;
     font-size: 1.5em;
 }
 
@@ -96,9 +96,11 @@ html, body {
 .days {
     width: 100px;
     height: 50px;
-    border: 2px solid  #684629;
-    color: #64472e;
-    background-color: #421e01;
+    font-size: 1.0em;
+    font-weight: bold;
+    border: 2px solid  #9b9b9b;
+    color: #9c4c05;
+    background-color: rgba(80, 80, 80, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,24 +116,24 @@ html, body {
     height: 100px;
     font-size: 1.5em;
     font-weight: bold;
-    border: 2px solid  #4d3d2f;
-    color: #64472e;
-    background-color: rgb(19, 19, 19);
+    border: 2px solid  #9b9b9b;
+    color: #b3b3b3;
+    background-color: rgba(214, 214, 214, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .cases:hover {
-    background-color: #352212;
+    background-color: rgba(253, 118, 0, 0.6);
     cursor: pointer;
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 2.0em;
     transition: 0.1s;
 }
 
 .activeDay {
     font-weight: bold;
-    font-size: 1.8em;
-    background-color: #352212;
+    font-size: 2.0em;
+    background-color: rgba(253, 118, 0, 0.6);
 }
