@@ -21,7 +21,7 @@ const monthArray = ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jui", "Aou", "Sep
 let firstDayOfCurrentMonth = daysInWeekArray[getFirstDayOfCurrentMonth.getDay()]
 
 // Check années bisextilles
-if (currentYear % 4 === 0) {
+if ((currentYear % 4 === 0 && currentYear % 100 != 0) || currentYear % 400 === 0) {
     fevrier = 29;
 } else {
     fevrier = 28;
@@ -121,7 +121,7 @@ function upMonth() {
     // Check années bisextilles
         let nextYear = displayedYear + 1
         let fevrierUp = ""
-        if (nextYear % 4 === 0) {
+        if ((nextYear % 4 === 0 && nextYear % 100 != 0) || nextYear %400 === 0) {
             fevrierUp = 29
         } else {
             fevrierUp = 28
@@ -175,7 +175,7 @@ function upMonth() {
         // Check années bisextilles
         let Year = displayedYear
         let fevrierUp = ""
-        if (Year % 4 === 0) {
+        if ((Year % 4 === 0 && Year % 100 != 0) || Year % 400 === 0) {
             fevrierUp = 29
         } else {
             fevrierUp = 28
@@ -236,7 +236,7 @@ function downMonth() {
     // Check années bisextilles
         let backYear = displayedYear - 1
         let fevrierDown = ""
-        if (backYear % 4 === 0) {
+        if ((backYear % 4 === 0 && backYear % 100 != 0) || backYear % 400 === 0) {
             fevrierDown = 29
         } else {
             fevrierDown = 28
@@ -290,7 +290,7 @@ function downMonth() {
         // check années bisextilles
         let backYear = displayedYear
         let fevrierDown = ""
-        if (backYear % 4 === 0) {
+        if ((backYear % 4 === 0 && backYear % 100 != 0) || backYear % 400 === 0) {
             fevrierDown = 29
         } else {
             fevrierDown = 28
