@@ -14,6 +14,7 @@ let years = document.querySelector('#years');
 let hours = document.querySelector('#hours');
 let minutes = document.querySelector('#minutes');
 let seconds = document.querySelector('#seconds');
+let goToday = document.querySelector('#goToday');
 
 const daysInWeekArray = ["dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 const monthArray = ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jui", "Aou", "Sep", "Oct", "Nov", "Dec"];
@@ -68,6 +69,10 @@ monthContainer.innerHTML = DateObject.month
 window.onload = () => {
     displayCalendar()
 }
+
+goToday.addEventListener('click', () => {
+    window.location.reload()
+})
 
 function displayCalendar() {
     let startPosition = ""
