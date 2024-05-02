@@ -5,6 +5,7 @@ let currentDate = date.getDate();
 let currentDayOfWeek = date.getDay();
 let getFirstDayOfCurrentMonth = new Date(currentYear, currentMonth)
 let cases = ""
+let fevrier = ""
 
 let days = document.querySelector('#days');
 let dates = document.querySelector('#dates');
@@ -19,6 +20,7 @@ const monthArray = ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jui", "Aou", "Sep
 
 let firstDayOfCurrentMonth = daysInWeekArray[getFirstDayOfCurrentMonth.getDay()]
 
+// Check années bisextilles
 if (currentYear % 4 === 0) {
     fevrier = 29;
 } else {
@@ -116,6 +118,15 @@ function upMonth() {
         cases.classList.remove('activeDay')
     }
     let displayedYear = parseInt(yearContainer.innerHTML)
+    // Check années bisextilles
+        let nextYear = displayedYear + 1
+        let fevrierUp = ""
+        if (nextYear % 4 === 0) {
+            fevrierUp = 29
+        } else {
+            fevrierUp = 28
+        }
+        const numberOfDayInFollowingMonth = [31, fevrierUp, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let displayedMonth = monthContainer.innerHTML
     let indexOfDisplayedMonth = monthArray.indexOf(displayedMonth)
     if (indexOfDisplayedMonth === 11) {
@@ -150,7 +161,7 @@ function upMonth() {
             startPosition = 6
         }
 
-        for (let i = 1; i <= numberOfDayInMonth[followingMonth]; i++) {
+        for (let i = 1; i <= numberOfDayInFollowingMonth[followingMonth]; i++) {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
@@ -161,6 +172,15 @@ function upMonth() {
             activeDay.classList.add('activeDay')
         }
     } else if (indexOfDisplayedMonth < 11) {
+        // Check années bisextilles
+        let Year = displayedYear
+        let fevrierUp = ""
+        if (Year % 4 === 0) {
+            fevrierUp = 29
+        } else {
+            fevrierUp = 28
+        }
+        const numberOfDayInFollowingMonth = [31, fevrierUp, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         let monthUp = new Date(displayedYear, indexOfDisplayedMonth + 1)
         followingMonth = monthUp.getMonth()
         monthContainer.innerHTML = monthArray[followingMonth]
@@ -188,7 +208,7 @@ function upMonth() {
             startPosition = 6
         }
 
-        for (let i = 1; i <= numberOfDayInMonth[followingMonth]; i++) {
+        for (let i = 1; i <= numberOfDayInFollowingMonth[followingMonth]; i++) {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
@@ -213,6 +233,15 @@ function downMonth() {
         cases.classList.remove('activeDay')
     }
     let displayedYear = parseInt(yearContainer.innerHTML)
+    // Check années bisextilles
+        let backYear = displayedYear - 1
+        let fevrierDown = ""
+        if (backYear % 4 === 0) {
+            fevrierDown = 29
+        } else {
+            fevrierDown = 28
+        }
+        const numberOfDayInBackMonth = [31, fevrierDown, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let displayedMonth = monthContainer.innerHTML
     let indexOfDisplayedMonth = monthArray.indexOf(displayedMonth)
     if (indexOfDisplayedMonth === 0) {
@@ -247,7 +276,7 @@ function downMonth() {
             startPosition = 6
         }
 
-        for (let i = 1; i <= numberOfDayInMonth[backMonth]; i++) {
+        for (let i = 1; i <= numberOfDayInBackMonth[backMonth]; i++) {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
@@ -258,6 +287,16 @@ function downMonth() {
             activeDay.classList.add('activeDay')
         }
     } else if (indexOfDisplayedMonth > 0) {
+        // check années bisextilles
+        let backYear = displayedYear
+        let fevrierDown = ""
+        if (backYear % 4 === 0) {
+            fevrierDown = 29
+        } else {
+            fevrierDown = 28
+        }
+        const numberOfDayInBackMonth = [31, fevrierDown, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
         let monthDown = new Date(displayedYear, indexOfDisplayedMonth - 1)
         backMonth = monthDown.getMonth()
         monthContainer.innerHTML = monthArray[backMonth]
@@ -285,7 +324,7 @@ function downMonth() {
             startPosition = 6
         }
 
-        for (let i = 1; i <= numberOfDayInMonth[backMonth]; i++) {
+        for (let i = 1; i <= numberOfDayInBackMonth[backMonth]; i++) {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
