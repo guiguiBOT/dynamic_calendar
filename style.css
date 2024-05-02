@@ -20,6 +20,7 @@ html, body {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
+    user-select: none;
 }
 
 #mainWatchContainer {
@@ -52,11 +53,13 @@ html, body {
 }
 
 #yearContainer {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
     color: #684629;
+    font-size: 2.8em;
 }
 
 #monthContainer {
@@ -65,18 +68,39 @@ html, body {
     align-items: center;
     width: 200px;
     color: #684629;
+    font-size: 1.5em;
 }
 
 .arrows {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #tabContainer {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+#daysOfWeek {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.days {
+    width: 100px;
+    height: 50px;
+    border: 1px solid  #684629;
+    color: #684629;
+    background-color: #352212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .weeks {
