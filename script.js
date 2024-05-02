@@ -102,6 +102,14 @@ function displayCalendar() {
         let cases = document.querySelector('#id' + (startPosition + i))
         cases.innerHTML = i
     }
+    // check les cases vides pour éviter l'effet hover des cases pleines
+    for (let i = 1; i <= 42; i++) {
+        let allCases = document.querySelector('#id' + i)
+        if (allCases.innerHTML === "") {
+            allCases.classList.remove('cases')
+            allCases.classList.add('emptyCases')
+        }
+    }
     let checkActiveYear = parseInt(yearContainer.innerHTML)
     let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
     if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
@@ -170,6 +178,18 @@ function upMonth() {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
+
+        // check les cases vides pour éviter l'effet hover des cases pleines
+    for (let i = 1; i <= 42; i++) {
+        let allCases = document.querySelector('#id' + i)
+        allCases.classList.remove('emptyCases')
+        allCases.classList.add('cases')
+        if (allCases.innerHTML === "") {
+            allCases.classList.remove('cases')
+            allCases.classList.add('emptyCases')
+        }
+    }
+
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
@@ -217,6 +237,18 @@ function upMonth() {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
+        
+        // check les cases vides pour éviter l'effet hover des cases pleines
+    for (let i = 1; i <= 42; i++) {
+        let allCases = document.querySelector('#id' + i)
+        allCases.classList.remove('emptyCases')
+        allCases.classList.add('cases')
+        if (allCases.innerHTML === "") {
+            allCases.classList.remove('cases')
+            allCases.classList.add('emptyCases')
+        }
+    }
+
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
@@ -285,6 +317,18 @@ function downMonth() {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
+
+        // check les cases vides pour éviter l'effet hover des cases pleines
+    for (let i = 1; i <= 42; i++) {
+        let allCases = document.querySelector('#id' + i)
+        allCases.classList.remove('emptyCases')
+        allCases.classList.add('cases')
+        if (allCases.innerHTML === "") {
+            allCases.classList.remove('cases')
+            allCases.classList.add('emptyCases')
+        }
+    }
+
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
@@ -333,6 +377,18 @@ function downMonth() {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
+
+        // check les cases vides pour éviter l'effet hover des cases pleines
+    for (let i = 1; i <= 42; i++) {
+        let allCases = document.querySelector('#id' + i)
+        allCases.classList.remove('emptyCases')
+        allCases.classList.add('cases')
+        if (allCases.innerHTML === "") {
+            allCases.classList.remove('cases')
+            allCases.classList.add('emptyCases')
+        }
+    }
+
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
