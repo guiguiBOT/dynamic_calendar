@@ -102,14 +102,8 @@ function displayCalendar() {
         let cases = document.querySelector('#id' + (startPosition + i))
         cases.innerHTML = i
     }
-    // check les cases vides pour éviter l'effet hover des cases pleines
-    for (let i = 1; i <= 42; i++) {
-        let allCases = document.querySelector('#id' + i)
-        if (allCases.innerHTML === "") {
-            allCases.classList.remove('cases')
-            allCases.classList.add('emptyCases')
-        }
-    }
+
+    // Met en avant le jour courant du mois
     let checkActiveYear = parseInt(yearContainer.innerHTML)
     let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
     if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
@@ -117,6 +111,8 @@ function displayCalendar() {
         activeDay.classList.add('activeDay')
     }
 
+    removeHoverCurrent()
+    displayedCalendarToArray()
 }
 
 let upMonthArrow = document.querySelector('#monthRightArrow')
@@ -132,14 +128,14 @@ function upMonth() {
     }
     let displayedYear = parseInt(yearContainer.innerHTML)
     // Check années bisextilles
-        let nextYear = displayedYear + 1
-        let fevrierUp = ""
-        if ((nextYear % 4 === 0 && nextYear % 100 != 0) || nextYear %400 === 0) {
-            fevrierUp = 29
-        } else {
-            fevrierUp = 28
-        }
-        const numberOfDayInFollowingMonth = [31, fevrierUp, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let nextYear = displayedYear + 1
+    let fevrierUp = ""
+    if ((nextYear % 4 === 0 && nextYear % 100 != 0) || nextYear % 400 === 0) {
+        fevrierUp = 29
+    } else {
+        fevrierUp = 28
+    }
+    const numberOfDayInFollowingMonth = [31, fevrierUp, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let displayedMonth = monthContainer.innerHTML
     let indexOfDisplayedMonth = monthArray.indexOf(displayedMonth)
     if (indexOfDisplayedMonth === 11) {
@@ -179,23 +175,17 @@ function upMonth() {
             cases.innerHTML = i
         }
 
-        // check les cases vides pour éviter l'effet hover des cases pleines
-    for (let i = 1; i <= 42; i++) {
-        let allCases = document.querySelector('#id' + i)
-        allCases.classList.remove('emptyCases')
-        allCases.classList.add('cases')
-        if (allCases.innerHTML === "") {
-            allCases.classList.remove('cases')
-            allCases.classList.add('emptyCases')
-        }
-    }
-
+        // Met en avant le jour courant du mois
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
             let activeDay = document.querySelector('#id' + (startPosition + currentDate))
             activeDay.classList.add('activeDay')
         }
+
+        removeHoverOthers()
+        displayedCalendarToArray()
+
     } else if (indexOfDisplayedMonth < 11) {
         // Check années bisextilles
         let Year = displayedYear
@@ -237,24 +227,17 @@ function upMonth() {
             let cases = document.querySelector('#id' + (startPosition + i))
             cases.innerHTML = i
         }
-        
-        // check les cases vides pour éviter l'effet hover des cases pleines
-    for (let i = 1; i <= 42; i++) {
-        let allCases = document.querySelector('#id' + i)
-        allCases.classList.remove('emptyCases')
-        allCases.classList.add('cases')
-        if (allCases.innerHTML === "") {
-            allCases.classList.remove('cases')
-            allCases.classList.add('emptyCases')
-        }
-    }
 
+        // Met en avant le jour courant du mois
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
             let activeDay = document.querySelector('#id' + (startPosition + currentDate))
             activeDay.classList.add('activeDay')
         }
+
+        removeHoverOthers()
+        displayedCalendarToArray()
     }
 }
 
@@ -271,14 +254,14 @@ function downMonth() {
     }
     let displayedYear = parseInt(yearContainer.innerHTML)
     // Check années bisextilles
-        let backYear = displayedYear - 1
-        let fevrierDown = ""
-        if ((backYear % 4 === 0 && backYear % 100 != 0) || backYear % 400 === 0) {
-            fevrierDown = 29
-        } else {
-            fevrierDown = 28
-        }
-        const numberOfDayInBackMonth = [31, fevrierDown, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let backYear = displayedYear - 1
+    let fevrierDown = ""
+    if ((backYear % 4 === 0 && backYear % 100 != 0) || backYear % 400 === 0) {
+        fevrierDown = 29
+    } else {
+        fevrierDown = 28
+    }
+    const numberOfDayInBackMonth = [31, fevrierDown, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let displayedMonth = monthContainer.innerHTML
     let indexOfDisplayedMonth = monthArray.indexOf(displayedMonth)
     if (indexOfDisplayedMonth === 0) {
@@ -318,23 +301,17 @@ function downMonth() {
             cases.innerHTML = i
         }
 
-        // check les cases vides pour éviter l'effet hover des cases pleines
-    for (let i = 1; i <= 42; i++) {
-        let allCases = document.querySelector('#id' + i)
-        allCases.classList.remove('emptyCases')
-        allCases.classList.add('cases')
-        if (allCases.innerHTML === "") {
-            allCases.classList.remove('cases')
-            allCases.classList.add('emptyCases')
-        }
-    }
-
+        // Met en avant le jour courant du mois
         let checkActiveYear = parseInt(yearContainer.innerHTML)
         let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
         if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
             let activeDay = document.querySelector('#id' + (startPosition + currentDate))
             activeDay.classList.add('activeDay')
         }
+
+        removeHoverOthers()
+        displayedCalendarToArray()
+
     } else if (indexOfDisplayedMonth > 0) {
         // check années bisextilles
         let backYear = displayedYear
@@ -378,7 +355,21 @@ function downMonth() {
             cases.innerHTML = i
         }
 
-        // check les cases vides pour éviter l'effet hover des cases pleines
+        // Met en avant le jour courant du mois
+        let checkActiveYear = parseInt(yearContainer.innerHTML)
+        let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
+        if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
+            let activeDay = document.querySelector('#id' + (startPosition + currentDate))
+            activeDay.classList.add('activeDay')
+        }
+
+        removeHoverOthers()
+        displayedCalendarToArray()
+    }
+}
+
+
+function removeHoverOthers() {
     for (let i = 1; i <= 42; i++) {
         let allCases = document.querySelector('#id' + i)
         allCases.classList.remove('emptyCases')
@@ -388,12 +379,47 @@ function downMonth() {
             allCases.classList.add('emptyCases')
         }
     }
+}
 
-        let checkActiveYear = parseInt(yearContainer.innerHTML)
-        let checkActiveMonth = monthArray.indexOf(monthContainer.innerHTML)
-        if (checkActiveYear === currentYear && checkActiveMonth === currentMonth) {
-            let activeDay = document.querySelector('#id' + (startPosition + currentDate))
-            activeDay.classList.add('activeDay')
+function removeHoverCurrent() {
+    for (let i = 1; i <= 42; i++) {
+        let allCases = document.querySelector('#id' + i)
+        if (allCases.innerHTML === "") {
+            allCases.classList.remove('cases')
+            allCases.classList.add('emptyCases')
         }
     }
 }
+
+function displayedCalendarToArray() {
+    let displayedArray = []
+    for (let i = 1; i <= 42; i++) {
+        let casesToCatch = document.querySelector('#id' + i)
+        console.log(casesToCatch.innerHTML);
+        displayedArray.push(casesToCatch.innerHTML)
+        }
+        console.log(displayedArray);
+        console.log(yearContainer.innerHTML);
+        console.log(monthContainer.innerHTML);
+    }
+
+// On créer une fonction qui va récupérer la valeur de la case cliquée
+function getClickedDate() {
+    let allCases = document.querySelectorAll('.cases')
+    allCases.forEach((element) => {
+        element.addEventListener('click', () => {
+            let value = element.innerHTML
+            if (value === "") {
+                value = "empty"
+            }
+            console.log(value);
+            if (value != "empty") {
+                let clickedDate = new Date(yearContainer.innerHTML, monthArray.indexOf(monthContainer.innerHTML), value)
+                console.log(clickedDate);
+                alert("Vous avez cliqué sur le " + value + " " + monthContainer.innerHTML + " " + yearContainer.innerHTML)
+            }
+        })
+    })
+}
+getClickedDate()
+
